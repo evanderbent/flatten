@@ -114,7 +114,7 @@ func FlattenString(nestedstr, prefix string, style SeparatorStyle) (string, erro
 func flatten(top bool, flatMap map[string]interface{}, nested interface{}, prefix string, style SeparatorStyle) error {
 	assign := func(newKey string, v interface{}) error {
 		switch v.(type) {
-		case map[string]interface{}, []interface{}:
+		case map[string]interface{}:
 			if err := flatten(false, flatMap, v, newKey, style); err != nil {
 				return err
 			}
