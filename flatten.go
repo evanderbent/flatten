@@ -66,6 +66,9 @@ const (
 
 	// Separate with underscores, e.g. "a_b_1_c_d"
 	UnderscoreStyle
+	
+	// Separate with dashes, e.g. "a-b-1-c-d"
+	DashStyle
 )
 
 // Nested input must be a map or slice
@@ -155,6 +158,8 @@ func enkey(top bool, prefix, subkey string, style SeparatorStyle) string {
 			key += "[" + subkey + "]"
 		case UnderscoreStyle:
 			key += "_" + subkey
+		case DashStyle:
+			key += "-" + subkey
 		}
 	}
 
